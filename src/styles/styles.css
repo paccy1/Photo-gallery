@@ -1,0 +1,153 @@
+/* Importing DIN font with a custom font-face */
+@font-face {
+  font-family: DIN;
+  src: url('/src/fonts/Din-Condensed-Font/DIN-Bold.ttf');
+}
+
+/* Importing Poppins font with a custom font-face */
+@font-face {
+  font-family: Poppins;
+  src: url('/src/fonts/Poppins/Poppins-Regular.ttf');
+}
+
+/* Styling for the body element */
+body {
+  margin: 0; /* Removing default margin */
+  padding: 0; /* Removing default padding */
+  background-color: #111; /* Setting background color to dark */
+  color: #fff; /* Setting default text color to white */
+}
+
+/* Styling for the gallery container */
+.gallery-container {
+  display: flex; /* Using flexbox layout */
+  width: 100%; /* Full width */
+  height: 100vh; /* Full viewport height */
+  justify-content: center; /* Centering content horizontally */
+  align-items: center; /* Centering content vertically */
+  position: relative; /* Positioning context for absolute positioning */
+}
+
+/* Styling for individual image wrappers */
+.image-wrapper {
+  position: relative; /* Positioning context for child elements */
+  display: inline-block; /* Inline-block for wrapping content */
+  width: auto; /* Auto width */
+  height: auto; /* Auto height */
+  overflow: hidden; /* Hiding overflow */
+  padding: 0 1px; /* Small padding on sides */
+}
+
+/* Styling for the images */
+.image {
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Cover object-fit */
+  transition: all 0.5s ease; /* Smooth transition */
+}
+
+/* Styling for the overlay */
+.overlay {
+  position: absolute; /* Absolute positioning */
+  top: 0; /* Positioning at top */
+  bottom: 0; /* Positioning at bottom */
+  left: 0; /* Positioning at left */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  opacity: 1; /* Full opacity */
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0) 0%, /* Transparent gradient start */
+    rgba(0, 0, 0, 0.7) 100% /* Dark gradient end */
+  );
+  transition: opacity 0.5s ease; /* Smooth transition */
+}
+
+/* Hover effect for image wrapper */
+.image-wrapper:hover .image {
+  filter: grayscale(100%) blur(5px); /* Grayscale and blur effect */
+  transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Hover effect for overlay */
+.image-wrapper:hover .overlay {
+  background-image: linear-gradient(
+    to bottom right,
+    rgba(0, 0, 0, 0.7) 0%, /* Dark gradient start */
+    rgba(0, 0, 0, 0.7) 100% /* Dark gradient end */
+  );
+}
+
+/* Styling for the text overlay */
+.text {
+  position: absolute; /* Absolute positioning */
+  bottom: 0; /* Positioning at bottom */
+  width: 100%; /* Full width */
+  color: white; /* Text color white */
+  opacity: 1; /* Full opacity */
+  transition: all 0.5s ease; /* Smooth transition */
+  margin: 40px 0; /* Margin */
+}
+
+/* Styling for text details */
+.text .details {
+  opacity: 1; /* Full opacity */
+  padding: 0 35px; /* Padding */
+  transition: all 0.5s ease; /* Smooth transition */
+}
+
+/* Styling for text heading */
+.text .details h2 {
+  font-family: DIN Condensed; /* Using DIN Condensed font */
+  font-weight: 700; /* Bold font weight */
+  font-size: 38px; /* Font size */
+  margin: 0; /* No margin */
+  line-height: 38px; /* Line height */
+  text-transform: uppercase; /* Uppercase text */
+}
+
+/* Styling for text paragraph */
+.text .details p {
+  font-family: Poppins; /* Using Poppins font */
+  font-size: 12px; /* Font size */
+  font-weight: 400; /* Normal font weight */
+  line-height: 16.02px; /* Line height */
+  text-align: left; /* Left text alignment */
+}
+
+/* Styling for "Know more" link */
+.text .know-more {
+  font-family: Poppins; /* Using Poppins font */
+  display: none; /* Hidden by default */
+  padding: 0 35px; /* Padding */
+  margin: 0; /* No margin */
+  color: #00dbff; /* Text color */
+  font-weight: 400; /* Normal font weight */
+  font-size: 14px; /* Font size */
+  text-decoration: none; /* No text decoration */
+  transition: 0.3s ease; /* Smooth transition */
+}
+
+/* Hover effect for text details */
+.image-wrapper:hover .text .details {
+  transform: translate3d(0, -15%, 0); /* Moving text upwards */
+}
+
+/* Hover effect to display "Know more" link */
+.image-wrapper:hover .text .know-more {
+  display: inline-block; /* Display link */
+  opacity: 1; /* Full opacity */
+}
+
+/* Media query for screen sizes up to 768px */
+@media (max-width: 768px) {
+  .image-wrapper {
+    width: 100%; /* Full width */
+    height: 100vh; /* Full viewport height */
+    padding: 0 1px; /* Small padding on sides */
+  }
+
+  .text {
+    display: none; /* Hide text on small screens */
+  }
+}
